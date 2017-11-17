@@ -18,6 +18,12 @@ git clone https://github.com/tomlion/vim-solidity.git ~/.vim/bundle/vim-solidity
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 ```
 
+## Main differences
+
+The main differences is the use of tabs instead of buffers, NERDTree makes up for the lack of a visual file manager. ctrl-p is also configured to open in a new tab instead of a new buffer. 
+
+Airline is not used because it is less than ideal on ssh terminals anyway, NERDTree wins here.
+
 ## Colors
 
 There is a colors directory. It contains most of the good colors.

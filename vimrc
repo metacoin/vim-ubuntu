@@ -61,6 +61,8 @@ nnoremap <silent> <leader>zC mzggvGzC<CR>'z:echo('Folded all folds ')<Esc>
 :map <leader>sc :setlocal spell! spelllang=en_us<CR>
 nnoremap [z [s
 nnoremap ]z ]s
+nnoremap z[ [s
+nnoremap z] ]s
 
 " edit after jumping to end of word
 nnoremap <silent> <leader>e ea

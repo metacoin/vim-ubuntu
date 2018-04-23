@@ -1,8 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
-let g:netrw_dirhist_1='/home/joey/Documents/Galaxy/Projects/PNL/price-s3-emailer/python'
-let g:netrw_dirhist_2='/home/joey'
-let g:netrw_dirhist_3='/home/joey/.cache'
-let g:netrw_dirhist_4='/home/joey/.cache/champlain'
-let g:netrw_dirhist_5='/home/joey'
-let g:netrw_dirhist_6='/home/joey/Documents/Galaxy/Projects/BlockParty/github/tickets/tix/contracts'

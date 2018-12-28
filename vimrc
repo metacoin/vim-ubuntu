@@ -50,6 +50,15 @@ map <Tab> gt
 " nnoremap S i<cr><esc>^mwgk:silent! s/\v +$//<cr>:noh<cr>$a
 nnoremap S i<CR><ESC>-:silent! s/\v +$//<cr>:noh<cr>$a
 
+" browse old
+nnoremap <silent> <leader>bb :browse old<CR>
+
+" change this word 
+nnoremap <silent> <leader>cb cvb
+
+" change in word
+nnoremap <silent> <leader>w ciw
+
 " unfold everything
 nnoremap <silent> <leader>zo mzggvGzO<CR>'z:echo('Unfolded all folds ')<Esc>
 nnoremap <silent> <leader>zc mzggvGzC<CR>'z:echo('Folded all folds ')<Esc>
@@ -87,9 +96,10 @@ if has('persistent_undo')
 endif
 
 " ctrlp with tabs instead of buffers
+" this script flips the default behaviors
 " let g:ctrlp_prompt_mappings = {
-"     \ 'AcceptSelection("e")': ['<2-LeftMouse>'],
-"     \ 'AcceptSelection("t")': ['<cr>'],
+"     \ 'AcceptSelection("e")': ['<c-t>'],
+"     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
 "     \ }
 
 
@@ -126,3 +136,42 @@ nnoremap <leader>. /<c-r>"<cr>cgn<c-r>.<esc>
 
 " lightline
 set laststatus=2
+
+function ScrollMotionDown(count)
+    :execute "normal" count . "jzb" . count . "k"
+endfunction
+
+function ScrollMotionUp(count)
+    :execute "normal" count . "kzt" . count . "j"
+endfunction
+
+command! -count ScrollMotionDown call ScrollMotionDown('<count>')
+command! -count ScrollMotionUp call ScrollMotionUp('<count>')
+
+nnoremap zj :ScrollMotionDown<CR>
+nnoremap zk :ScrollMotionUp<CR> 
+
+" Oldfiles
+noremap <leader>bo :vnew +setl\ buftype=nofile <bar> 0put =v:oldfiles <bar> nnoremap <lt>buffer> <lt>CR> :e <lt>C-r>=getline('.')<lt>CR><lt>CR><CR><CR>
+noremap <leader>bt :tabnew +setl\ buftype=nofile <bar> 0put =v:oldfiles <bar> nnoremap <lt>buffer> <lt>CR> :e <lt>C-r>=getline('.')<lt>CR><lt>CR <CR><CR>"
+
+" close buffer without closing window
+map <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>. 
+
+" use 256 colors in terminal                                                                                                                                                                                                                              
+if !has("gui_running")                                                                                                                                                                                                                                    
+    set t_Co=256                                                                                                                                                                                                                                          
+    set term=screen-256color                                                                                                                                                                                                                              
+endif                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                          
+" fix cursor display in cygwin                                                                                                                                                                                                                            
+if has("win32unix")                                                                                                                                                                                                                                       
+    let &t_ti.="\e[1 q"                                                                                                                                                                                                                                   
+    let &t_SI.="\e[5 q"                                                                                                                                                                                                                                   
+    let &t_EI.="\e[1 q"                                                                                                                                                                                                                                   
+    let &t_te.="\e[0 q"                                                                                                                                                                                                                                   
+endif                                                                                                                                                                                                                                                     
+                                                                                                                                                                                                                                                          
+" backspace fix
+set backspace=indent,eol,start                                                                                                                                                                                                                            
+"set backspace=2

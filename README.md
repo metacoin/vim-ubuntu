@@ -18,6 +18,21 @@ git clone https://github.com/tomlion/vim-solidity.git ~/.vim/bundle/vim-solidity
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript
 ```
 
+## tmux fix
+.bashrc:
+```
+alias tmux="tmux -2"
+```
+
+.tmux.conf:
+```
+set -g default-terminal "xterm-256color"
+```
+
+.vimrc:
+See from `"use 256 colors in terminal`
+
+
 ## Main differences
 
 The main differences is the use of tabs instead of buffers, NERDTree makes up for the lack of a visual file manager. ctrl-p is also configured to open in a new tab instead of a new buffer. 

@@ -16,7 +16,7 @@ git clone https://github.com/fatih/vim-go.git && \
 git clone https://github.com/plasticboy/vim-markdown.git && \
 git clone https://github.com/tomlion/vim-solidity.git ~/.vim/bundle/vim-solidity && \
 git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript && \
-git clone https://github.com/kien/ctrlp.vim.git bundle/ctrlp.vim
+git clone https://github.com/kien/ctrlp.vim.git ctrlp.vim
 ```
 
 ## tmux fix

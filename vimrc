@@ -101,6 +101,7 @@ endif
 "     \ 'AcceptSelection("e")': ['<c-t>'],
 "     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
 "     \ }
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 
 " Make shift-insert work like in Xterm
@@ -158,20 +159,21 @@ noremap <leader>bt :tabnew +setl\ buftype=nofile <bar> 0put =v:oldfiles <bar> nn
 " close buffer without closing window
 map <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>. 
 
-" use 256 colors in terminal                                                                                                                                                                                                                              
-if !has("gui_running")                                                                                                                                                                                                                                    
-    set t_Co=256                                                                                                                                                                                                                                          
-    set term=screen-256color                                                                                                                                                                                                                              
-endif                                                                                                                                                                                                                                                     
-                                                                                                                                                                                                                                                          
-" fix cursor display in cygwin                                                                                                                                                                                                                            
-if has("win32unix")                                                                                                                                                                                                                                       
-    let &t_ti.="\e[1 q"                                                                                                                                                                                                                                   
-    let &t_SI.="\e[5 q"                                                                                                                                                                                                                                   
-    let &t_EI.="\e[1 q"                                                                                                                                                                                                                                   
-    let &t_te.="\e[0 q"                                                                                                                                                                                                                                   
-endif                                                                                                                                                                                                                                                     
-                                                                                                                                                                                                                                                          
+" use 256 colors in terminal
+"
+if !has("gui_running")
+    set t_Co=256
+    set term=screen-256color
+endif
+
+" fix cursor display in cygwin
+if has("win32unix")
+    let &t_ti.="\e[1 q"
+    let &t_SI.="\e[5 q"
+    let &t_EI.="\e[1 q"
+    let &t_te.="\e[0 q"
+endif
+
 " backspace fix
-set backspace=indent,eol,start                                                                                                                                                                                                                            
+set backspace=indent,eol,start
 "set backspace=2

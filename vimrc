@@ -1,12 +1,32 @@
 execute pathogen#infect()
 
+colorscheme Tomorrow-Night-Bright
+
+function ScrollMotionDown(count)
+    :execute "normal" count . "jzb" . count . "k"
+endfunction
+
+function ScrollMotionUp(count)
+    :execute "normal" count . "kzt" . count . "j"
+endfunction
+
+command! -count ScrollMotionDown call ScrollMotionDown('<count>')
+command! -count ScrollMotionUp call ScrollMotionUp('<count>')
+
+nnoremap zj :ScrollMotionDown<CR>
+nnoremap zk :ScrollMotionUp<CR> 
+
 if has("syntax")
   syntax on
 endif
 
 filetype plugin indent on
 
-colorscheme Tomorrow-Night-Bright
+" NOTES
+" :set no/list      = whitespace off/on
+" :mks              = make session
+" :w ++enc=utf-8 %  = save as utf-8
+
 
 " nerdtree
 map <C-n> :NERDTreeToggle<CR>
@@ -31,16 +51,17 @@ set hlsearch
 set autoindent
 set smartindent
 set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 set expandtab
 set hidden
 
 set noswapfile
 
 set clipboard^=unnamedplus
-let mapleader = " "
+let mapleader = "0"
+nnoremap <Space> 0
 
 map <S-Tab> gT
 map <Tab> gt
@@ -52,9 +73,6 @@ nnoremap S i<CR><ESC>-:silent! s/\v +$//<cr>:noh<cr>$a
 
 " browse old
 nnoremap <silent> <leader>bb :browse old<CR>
-
-" change this word 
-nnoremap <silent> <leader>cb cvb
 
 " change in word
 nnoremap <silent> <leader>w ciw
@@ -81,6 +99,18 @@ nnoremap <silent> <leader>E Ea
 nnoremap # ^
 nnoremap ^ #
 
+" zerozero 
+nnoremap <leader>0 0
+
+" open new tab
+nnoremap <leader>t :tabe<CR>
+" close buffer
+nnoremap <leader>bb :bd<CR>
+
+" move buffers (assumes leader is 0)
+nnoremap <leader>9 :bprev<CR>
+nnoremap <leader>- :bnext<CR>
+
 " Put plugins and dictionaries in this dir (also on Windows)
 let vimDir = '$HOME/.vim'
 let &runtimepath.=','.vimDir
@@ -95,19 +125,22 @@ if has('persistent_undo')
     set undofile
 endif
 
+" more tabs (not like tab spaces, like tab layouts/workspaces)
+set tabpagemax=100
 " ctrlp with tabs instead of buffers
 " this script flips the default behaviors
 " let g:ctrlp_prompt_mappings = {
 "     \ 'AcceptSelection("e")': ['<c-t>'],
 "     \ 'AcceptSelection("t")': ['<cr>', '<2-LeftMouse>'],
 "     \ }
-set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Make shift-insert work like in Xterm
 map <S-Insert> <MiddleMouse>
 map! <S-Insert> <MiddleMouse>
-imap <C-v> <C-o>"+P
+"imap <C-v> <C-o>"+P
 
 map <A-Left> :bprev<CR>
 map <A-Right> :bnext<CR>
@@ -138,19 +171,6 @@ nnoremap <leader>. /<c-r>"<cr>cgn<c-r>.<esc>
 " lightline
 set laststatus=2
 
-function ScrollMotionDown(count)
-    :execute "normal" count . "jzb" . count . "k"
-endfunction
-
-function ScrollMotionUp(count)
-    :execute "normal" count . "kzt" . count . "j"
-endfunction
-
-command! -count ScrollMotionDown call ScrollMotionDown('<count>')
-command! -count ScrollMotionUp call ScrollMotionUp('<count>')
-
-nnoremap zj :ScrollMotionDown<CR>
-nnoremap zk :ScrollMotionUp<CR> 
 
 " Oldfiles
 noremap <leader>bo :vnew +setl\ buftype=nofile <bar> 0put =v:oldfiles <bar> nnoremap <lt>buffer> <lt>CR> :e <lt>C-r>=getline('.')<lt>CR><lt>CR><CR><CR>
@@ -158,13 +178,7 @@ noremap <leader>bt :tabnew +setl\ buftype=nofile <bar> 0put =v:oldfiles <bar> nn
 
 " close buffer without closing window
 map <leader>bd :bp<bar>sp<bar>bn<bar>bd<CR>. 
-
-" use 256 colors in terminal
-"
-if !has("gui_running")
-    set t_Co=256
-    set term=screen-256color
-endif
+map <leader>. :CtrlPTag<CR>
 
 " fix cursor display in cygwin
 if has("win32unix")
@@ -177,3 +191,9 @@ endif
 " backspace fix
 set backspace=indent,eol,start
 "set backspace=2
+
+" fix background colors
+set t_Co=256
+set background=dark
+highlight Normal ctermbg=NONE
+highlight nonText ctermbg=NONE

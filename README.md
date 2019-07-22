@@ -11,12 +11,14 @@ mkdir ~/.vim && cd ~/.vim && \
 git clone https://github.com/metacoin/vim-ubuntu.git . && \
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
-mv vimrc ~/.vimrc && cd bundle && \
-git clone https://github.com/fatih/vim-go.git && \
-git clone https://github.com/plasticboy/vim-markdown.git && \
-git clone https://github.com/tomlion/vim-solidity.git ~/.vim/bundle/vim-solidity && \
-git clone https://github.com/pangloss/vim-javascript.git ~/.vim/bundle/vim-javascript && \
-git clone https://github.com/kien/ctrlp.vim.git ctrlp.vim
+cp vimrc ~/.vimrc && cd bundle && \
+```
+
+### fzf
+https://github.com/junegunn/fzf#using-git
+```
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 ```
 
 ## tmux fix

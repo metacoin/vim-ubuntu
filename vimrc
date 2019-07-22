@@ -201,3 +201,4 @@ highlight nonText ctermbg=NONE
 " fzf
 set rtp+=~/.fzf
 map <C-p> :FZF<CR>
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'

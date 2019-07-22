@@ -21,6 +21,11 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 ```
 
+### ag
+```
+apt-get install silversearcher-ag -y
+```
+
 ## tmux fix
 .bashrc:
 ```

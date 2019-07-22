@@ -11,7 +11,7 @@ mkdir ~/.vim && cd ~/.vim && \
 git clone https://github.com/metacoin/vim-ubuntu.git . && \
 mkdir -p ~/.vim/autoload ~/.vim/bundle && \
 curl -LSso ~/.vim/autoload/pathogen.vim https://tpo.pe/pathogen.vim && \
-cp vimrc ~/.vimrc && cd bundle && \
+cp vimrc ~/.vimrc
 ```
 
 ### fzf

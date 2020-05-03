@@ -4,6 +4,15 @@ Use this guide to install vim with my usual configuration on an ubuntu server.
 
 ## Install
 
+### Pre-requisites
+
+```
+sudo apt-get update
+sudo apt-get install -y build-essential curl
+```
+
+### Make directories and clone vim configs
+
 Make vim directory, grab pathogen, clone this repo here, clone bundles.
 
 ```
@@ -42,6 +51,23 @@ set -g default-terminal "xterm-256color"
 .vimrc:
 See from `"use 256 colors in terminal`
 
+## gvim
+
+```
+sudo apt-get update
+sudo apt-get install -y vim-gtk3
+```
+
+.gvimrc:
+```
+set guifont=Ubuntu\ Mono\ 10
+```
+
+## tweak (for caps escape)
+```
+sudo apt-get install gnome-tweak-tool
+```
+ 
 
 ## Main differences
 

@@ -4,11 +4,11 @@ Use this guide to install vim with my usual configuration on an ubuntu server.
 
 ## Install
 
-### Pre-requisites
+### Pre-requisites and basics
 
 ```
-sudo apt-get update
-sudo apt-get install -y build-essential curl
+sudo apt-get update \
+sudo apt-get install -y build-essential curl git vim-gtk3 tmux
 ```
 
 ### Make directories and clone vim configs
@@ -41,6 +41,7 @@ apt-get install silversearcher-ag -y
 alias tmux="tmux -2"
 export VISUAL=vim
 export EDITOR="$VISUAL"
+alias temps="cat /sys/class/thermal/thermal_zone*/temp"
 ```
 
 .tmux.conf:

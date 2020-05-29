@@ -60,8 +60,7 @@ set hidden
 set noswapfile
 
 set clipboard^=unnamedplus
-let mapleader = "0"
-nnoremap <Space> 0
+let mapleader = " "
 
 map <S-Tab> gT
 map <Tab> gt
@@ -202,3 +201,10 @@ highlight nonText ctermbg=NONE
 set rtp+=~/.fzf
 map <C-p> :FZF<CR>
 let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
+
+" no terminal bells (also see .gvimrc option)
+set noeb vb t_vb=
+
+" insert timestamp in
+" ISO8601/W3C format (http://www.w3.org/TR/NOTE-datetime)
+nnoremap <F5> "=strftime("%FT%T%z")<CR>P

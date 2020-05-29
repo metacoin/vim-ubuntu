@@ -61,7 +61,8 @@ sudo apt-get install -y vim-gtk3
 
 .gvimrc:
 ```
-set guifont=Ubuntu\ Mono\ 10
+set guifont=Liberation\ Mono\ 10
+set vb t_vb=
 ```
 
 ## tweak (for caps escape)

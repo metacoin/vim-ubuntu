@@ -73,7 +73,13 @@ set vb t_vb=
 gnome-tweak-tool allows changes to key bindings and static workspaces
 
 ## dconf-editor
-Allows you to change the hotkey for switching to workspaces beyond workspace #4.
+1. Allows changing the hotkey for switching to workspaces beyond workspace #4.
+
+2. Allows changing nautilus default searchbar to a path bar (use the search button to search instead, press ESC to return to path bar)
+
+> navigate to org > gnome > nautilus > preferences and check always-use-location-entry.
+
+https://askubuntu.com/a/633903
  
 ## Colors
 

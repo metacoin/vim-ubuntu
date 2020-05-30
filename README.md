@@ -80,6 +80,11 @@ gnome-tweak-tool allows changes to key bindings and static workspaces
 > navigate to org > gnome > nautilus > preferences and check always-use-location-entry.
 
 https://askubuntu.com/a/633903
+
+## Standard Notes
+
+Note taking and blogging software using Listed:
+https://standardnotes.org/extensions?downloaded=linux
  
 ## Colors
 
